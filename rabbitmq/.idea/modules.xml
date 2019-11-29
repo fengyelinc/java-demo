@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/publish/publish.iml" filepath="$PROJECT_DIR$/publish/publish.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mqsend/queue.iml" filepath="$PROJECT_DIR$/mqsend/queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbitmq.iml" filepath="$PROJECT_DIR$/rabbitmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/route/route.iml" filepath="$PROJECT_DIR$/route/route.iml" />
+      <module fileurl="file://$PROJECT_DIR$/topic/topic.iml" filepath="$PROJECT_DIR$/topic/topic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/work/work.iml" filepath="$PROJECT_DIR$/work/work.iml" />
+    </modules>
+  </component>
+</project>
