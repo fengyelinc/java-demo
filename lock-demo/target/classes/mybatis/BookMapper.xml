@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.lockdemo.mapper.BookMapper">
+    <resultMap id="BookResultMap" type="com.example.lockdemo.entity.Book">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="bookName" property="bookName" jdbcType="VARCHAR"/>
+        <result column="count" property="count" jdbcType="INTEGER"/>
+        <result column="version" property="version" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="queryOne" resultMap="BookResultMap" resultType="Book">
+            select * from book where id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="Book">
+        insert into book values (bookName=#{bookName},count=#{count},version=#{version})
+    </insert>
+
+    <delete id="del" parameterType="Integer">
+        delete from book where id=#{id}
+    </delete>
+
+    <update id="update" parameterType="Book">
+        update book set count=#{count} where count>=0
+    </update>
+</mapper>
