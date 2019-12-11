@@ -32,6 +32,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+//                .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/user/**").permitAll()
                 .antMatchers("/**")
                 .fullyAuthenticated()
@@ -39,6 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login").permitAll()
 //                .defaultSuccessUrl("/home").permitAll()
+                .and().csrf().disable()
 
         ;
 
@@ -66,10 +69,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         //设置静态资源不要拦截
         web.ignoring().antMatchers("/js/**", "/cs/**", "/images/**");
 
-        web.ignoring(). antMatchers("/swagger-ui.html")
-                .antMatchers("/webjars/**")
-                .antMatchers("/v2/**")
-                .antMatchers("/swagger-resources/**");
+//        web.ignoring()
+//                .antMatchers("/webjars/**")
+//                .antMatchers("/v2/**")
+//                .antMatchers("/swagger-resources/**");
     }
 
 }
