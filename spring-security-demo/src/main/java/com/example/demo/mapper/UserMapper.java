@@ -2,14 +2,20 @@ package com.example.demo.mapper;
 
 import com.example.demo.domain.Premission;
 import com.example.demo.domain.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+
+@Mapper
 public interface UserMapper {
-    public User findByUserName(String userName);
+     User findByUserName(String userName);
 
 
-    List<Premission> findPreMissionByUserName(String userName);
+    List<String> findPreMissionByUserName(String userName);
+
+    int addUser(User user);
+
 }

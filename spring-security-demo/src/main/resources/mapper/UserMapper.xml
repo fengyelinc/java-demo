@@ -29,4 +29,9 @@
 	username = #{username}
     </select>
 
+    <insert id="addUser" >
+            insert into sys_user set username=#{username},password=#{password},create_date=#{createDate},accountNonExpired=#{accountNonExpired},
+            accountNonLocked=#{accountNonLocked},credentialsNonExpired=#{credentialsNonExpired},enabled=#{enabled}
+    </insert>
+
 </mapper>

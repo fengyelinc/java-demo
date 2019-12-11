@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -33,9 +34,23 @@ public class test {
 
     @Test
     public void test2() {
-        List<Premission> cc = userMapper.findPreMissionByUserName("cc");
+        List<String> cc = userMapper.findPreMissionByUserName("cc");
         System.out.println(cc);
     }
+
+    @Test
+    public void test3() {
+        User user = new User();
+        user.setUsername("yy");
+        user.setPassword("333");
+        user.setCreateDate(new Date());
+        user.setAccountNonExpired(true);
+        user.setAccountNonLocked(true);
+        user.setCredentialsNonExpired(true);
+        user.setEnabled(true);
+        userMapper.addUser(user);
+    }
+
 }
 
 

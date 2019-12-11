@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,21 +12,37 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 @Table(name = "security")
+@ApiModel("")
 public class User implements Serializable,UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("主键id")
     private int id;
 
+    @ApiModelProperty("用户名")
     private String username;
+
+    @ApiModelProperty("密码")
     private String password;
+
+    @ApiModelProperty("更新日期")
     @Column(name = "create_date")
     private Date createDate;
+
+    @ApiModelProperty("账户是否过期")
     private boolean accountNonExpired;
+
+    @ApiModelProperty("账户是否锁定")
     private boolean accountNonLocked;
+
+    @ApiModelProperty("密码是否过期")
     private boolean credentialsNonExpired;
+
+    @ApiModelProperty("密码是否有效")
     private boolean enabled;
 
     @Transient
+    @ApiModelProperty("权限集合")
     private List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
     @Override
